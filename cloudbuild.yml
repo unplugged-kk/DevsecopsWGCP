@@ -1,0 +1,3 @@
+steps:
+  - name: 'ubuntu'
+    args: ['echo' , 'Hello This the first build run on GCP']
