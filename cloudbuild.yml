@@ -3,5 +3,5 @@ steps:
     args: ['echo' , 'Hello All, This the first build run on GCP']
 # Going to execute SonarCube Scan
   - name: 'mvn:3-jdk-11'
-  entrypoint: mvn
-  args: ['verify','sonar:sonar','-Dsonar.host.url=https://sonarcloud.io','-Dsonar.projectKey=DevsecopsWGCP','-Dsonar.organization=kishore-devops-devsecops','-Dsonar.login=11d8e09d9231d667c7ce03341fa5bcc50f390dcd']
+    entrypoint: mvn
+    args: ['verify','sonar:sonar','-Dsonar.host.url=https://sonarcloud.io','-Dsonar.projectKey=DevsecopsWGCP','-Dsonar.organization=kishore-devops-devsecops','-Dsonar.login=11d8e09d9231d667c7ce03341fa5bcc50f390dcd']
