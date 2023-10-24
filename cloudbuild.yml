@@ -4,4 +4,5 @@ steps:
 # Going to execute SonarCube Scan
   - name: 'maven:3-jdk-11'
     entrypoint: mvn
-    args: ['verify','sonar:sonar','-Dsonar.host.url=https://sonarcloud.io','-Dsonar.projectKey=DevsecopsWGCP','-Dsonar.organization=kishore-devops-devsecops','-Dsonar.login=11d8e09d9231d667c7ce03341fa5bcc50f390dcd']
+    args: ['verify','sonar:sonar','-Dsonar.host.url=https://sonarcloud.io','-Dsonar.projectKey=DevsecopsWGCP','-Dsonar.organization=kishore-devops-devsecops','-Dsonar.login={$_SONAR_TOKEN}']
+
