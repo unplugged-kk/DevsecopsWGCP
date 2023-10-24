@@ -1,8 +1,20 @@
 steps:
   - name: 'ubuntu'
     args: ['echo' , 'Hello All, This the first build run on GCP']
-# Going to execute SonarCube Scan
+# Going to execute SonarCube Scan [SAST SCAN]
   - name: 'maven:3-jdk-11'
     entrypoint: mvn
     args: ['verify','sonar:sonar','-Dsonar.host.url=https://sonarcloud.io','-Dsonar.projectKey=DevsecopsWGCP','-Dsonar.organization=kishore-devops-devsecops','-Dsonar.login=$_SONAR_TOKEN']
 
+# Run Software Composition Analysis (SCA security scan) using Snyk
+  - name: 'ubuntu'
+    entrypoint: bash
+    args: 
+        - '-c'
+        - |-
+          apt-get update
+          apt-get -y install maven 
+          SNYK_TOKEN=$_SNYK_TOKEN
+          export SNYK_TOKEN
+          mvn snyk:test -fn 
+    id: Snyk SCA
